@@ -1,0 +1,23 @@
+#!/bin/sh
+#
+# Run locust in stand-alone mode
+# locust -f LOCUST_SCRIPTS_PATH/my_locust_file.py
+#
+# Run locust in master mode
+# locust -f LOCUST_SCRIPTS_PATH/my_locust_file.py --master
+#
+# Run locust in slave mode
+# locust -f LOCUST_SCRIPTS_PATH/my_locust_file.py --slave --master-host=192.168.0.100
+#
+exec 2>&1
+<% if node['locustio']['node_type'] == 'standalone' -%>
+
+exec /usr/bin/env locust -f <%= node['locustio']['custom_test_base_path'] -%>/<%= node['locustio']['test_file'] -%> --logfile=<%= node['locustio']['log_file_dir'] -%>/output.log
+
+<% elsif node['locustio']['node_type'] == 'master' -%> 
+exec /usr/bin/env locust -f <%= node['locustio']['custom_test_base_path'] -%>/<%= node['locustio']['test_file'] -%> --master --logfile=<%= node['locustio']['log_file_dir'] -%>/output.log
+
+<% elsif node['locustio']['node_type'] == 'slave' -%>
+exec /usr/bin/env locust -f <%= node['locustio']['custom_test_base_path'] -%>/<%= node['locustio']['test_file'] -%> --slave --master-host=<%= node['locustio']['master_ip'] -%> --logfile=<%= node['locustio']['log_file_dir'] -%>/output.log
+
+<% end %>

@@ -1,0 +1,18 @@
+{
+  "id": "locust-master",
+  "chef_environment": "_default",
+  "automatic": {
+    "ipaddress": "192.168.88.2",
+     "hostname": "locust-master"
+  },
+  "hostname": "locust-master",
+  "normal": {
+    "tags": [
+      "master"
+    ]
+  },
+  "run_list": [
+  "recipe[hartfordfive-locustio]"
+]
+
+}
