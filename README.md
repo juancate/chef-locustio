@@ -1,4 +1,4 @@
-# locust
+# Chef LocustIO Cookbook
 
 
 ##Description
@@ -9,6 +9,7 @@ This cookbook automates the provisionning of Locust load testing tool.
 ##Platforms
 
 * Ubuntu 14.04
+
 
 ##Atributes
 
@@ -21,10 +22,12 @@ This cookbook automates the provisionning of Locust load testing tool.
 * `node['locustio']['min_wait_time']` - Minimum time (in ms) to wait between requests
 * `node['locustio']['max_wait_time']` - Maximum time (in ms) to wiat between requests
 * `node['locustio']['log_file_dir']` - Directory where the log file is created
+* `node['locustio']['default_test_file']` - File name of the default locust test file
 
 ##Recipes
 
-`hartfordfive-locustio::default`
+`locustio::default`
+
 
 ##Usage Examples
 
@@ -34,6 +37,7 @@ This cookbook automates the provisionning of Locust load testing tool.
 ##Future Roadmap
 
 * Add support for additional platforms (Ubuntu 12.04, Centos 6.5, Centos 7, Debian 7.7)
+
 
 ## Creator
 
