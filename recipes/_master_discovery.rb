@@ -1,5 +1,5 @@
 
-locust_master = search('node', "recipe:locustio AND chef_environment:#{node.chef_environment} AND tags:master")
+locust_master = search('node', "recipe:locustio AND chef_environment:#{node.chef_environment} AND locustio_node_type:master")
 
 fail "Backend declared with _discovery without search_query: #{backend_object.inspect}" if locust_master.length == 0
 
