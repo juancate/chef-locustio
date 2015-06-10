@@ -16,13 +16,9 @@ suites:
       - recipe[locustio::default]
     attributes:
       locustio:
-        base_url: chef.io
+        base_url: example.com
         uri_list:
-          - {'uri': '/chef/', 'weight': '20', 'identifier': 'what_is_chef'}
-          - {'uri': '/resources', 'weight': '20', 'identifier': 'chef_resources'}
-          - {'uri': '/getting-started', 'weight': '20', 'identifier': 'getting_started'}
-          - {'uri': '/resources/solutions', 'weight': '20', 'identifier': 'resource_solutions'}
-          - {'uri': '/solutions/aix', 'weight': '20', 'identifier': 'solutions_aix'}
+          - {'uri': '/', 'weight': '20', 'identifier': 'home'}
         node_type: 'standalone'
         custom_test_file: 'custom_test.py'
 
@@ -31,13 +27,9 @@ suites:
       - recipe[locustio::default]
     attributes:
       locustio:
-        base_url: chef.io
+        base_url: example.com
         uri_list:
-          - {'uri': '/chef/', 'weight': '20', 'identifier': 'what_is_chef'}
-          - {'uri': '/resources', 'weight': '20', 'identifier': 'chef_resources'}
-          - {'uri': '/getting-started', 'weight': '20', 'identifier': 'getting_started'}
-          - {'uri': '/resources/solutions', 'weight': '20', 'identifier': 'resource_solutions'}
-          - {'uri': '/solutions/aix', 'weight': '20', 'identifier': 'solutions_aix'}
+          - {'uri': '/', 'weight': '20', 'identifier': 'home'}
         node_type: 'master'
         custom_test_file: 'custom_test.py'
 

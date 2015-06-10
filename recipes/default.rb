@@ -8,12 +8,21 @@ include_recipe "apt::default"
 include_recipe "runit"
 include_recipe "python::default"
 
-package "g++" do
-  action :install
+package "g++" 
+package "python-zmq"
+
+python_pip 'pyzmq' do
+  version '14.0.1'
+  user 'root'
+  group 'root'
 end
 
-python_pip 'pyzmq'
-python_pip 'locustio'
+python_pip 'locustio' do
+  version '0.7.2'
+  user 'root'
+  group 'root'
+end
+
 
 
 directory "/usr/local/share/locustio/logs" do
@@ -65,8 +74,6 @@ if node['locustio']['autostart']
   require 'net/http'
   require 'json'
   require 'uri'
-
-  # curl --data "locust_count=[TOTAL_VIRTUAL_USERS]&hatch_rate=[NEW_USERS_PER_SECOND]" http://localhost:8089/swarm
 
   uri = URI.parse("http://localhost:#{node['locustio']['webui_port']}/swarm")
   https = Net::HTTP.new(uri.host,uri.port)

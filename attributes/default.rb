@@ -18,3 +18,4 @@ default['locustio']['autostart_total_virtual_users'] = 40
 default['locustio']['autostart_hatch_rate'] = 3
 default['locustio']['webui_port'] = 8089
 default['locustio']['discovery_recipe'] = 'locustio'
+default['locustio']['cluster_name'] = 'locust-default'
