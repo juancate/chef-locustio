@@ -5,8 +5,8 @@ DEPENDENCIES
 
 GRAPH
   apt (2.6.1)
-  build-essential (2.2.0)
-  locustio (0.1.0)
+  build-essential (2.2.3)
+  locustio (0.2.1)
     apt (~> 2.6.1)
     python (~> 1.4.6)
     runit (~> 1.5.12)
