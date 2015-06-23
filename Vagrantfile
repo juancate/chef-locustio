@@ -11,7 +11,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.berkshelf.berksfile_path = './Berksfile'
 
   # More at https://atlas.hashicorp.com/boxes/search
-  config.vm.box = "chef/ubuntu-14.04"
+  config.vm.box = "chef/centos-6.5"
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
@@ -28,7 +28,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # config.vm.network "public_network"
 
   config.vm.provision "chef_solo" do |chef|
-    chef.add_recipe "locust"
+    chef.add_recipe "locustio"
     chef.json = {}
   end
 end

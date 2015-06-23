@@ -5,11 +5,9 @@
 # Copyright (c) 2014 The Authors, All Rights Reserved.
 
 include_recipe "apt::default"
+include_recipe "yum-centos::default"
 include_recipe "runit"
 include_recipe "python::default"
-
-package "g++" 
-package "python-zmq"
 
 python_pip 'pyzmq' do
   version '14.0.1'
@@ -22,8 +20,6 @@ python_pip 'locustio' do
   user 'root'
   group 'root'
 end
-
-
 
 directory "/usr/local/share/locustio/logs" do
   owner "root"
