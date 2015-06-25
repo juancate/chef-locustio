@@ -11,8 +11,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.berkshelf.berksfile_path = './Berksfile'
 
   # More at https://atlas.hashicorp.com/boxes/search
-  config.vm.define "ubuntu" do |centos|
-    centos.vm.box = "chef/ubuntu-14.04"
+  config.vm.define "ubuntu" do |ubuntu|
+    ubuntu.vm.box = "chef/ubuntu-14.04"
   end
 
   config.vm.define "centos" do |centos|
