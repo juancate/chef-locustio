@@ -11,7 +11,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.berkshelf.berksfile_path = './Berksfile'
 
   # More at https://atlas.hashicorp.com/boxes/search
-  config.vm.box = "chef/centos-6.5"
+  config.vm.define "ubuntu" do |centos|
+    centos.vm.box = "chef/ubuntu-14.04"
+  end
+
+  config.vm.define "centos" do |centos|
+    centos.vm.box = "chef/centos-6.5"
+  end
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,

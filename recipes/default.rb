@@ -8,6 +8,7 @@ include_recipe "apt::default"
 include_recipe "yum-centos::default"
 include_recipe "runit"
 include_recipe "python::default"
+include_recipe 'build-essential::default'
 
 python_pip 'pyzmq' do
   version '14.0.1'
